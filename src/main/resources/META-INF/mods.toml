@@ -1,0 +1,8 @@
+modLoader="javafml"
+loaderVersion="[36,)"
+license="All rights reserved"
+[[mods]]
+modId="snapcraft_prison_utils"
+version="${file.jarVersion}"
+displayName="Snapcraft Prison Utils"
+authors="Isadore"
