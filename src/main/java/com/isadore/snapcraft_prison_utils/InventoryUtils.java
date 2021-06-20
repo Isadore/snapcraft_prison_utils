@@ -29,7 +29,7 @@ public class InventoryUtils {
     @Nullable
     public static HashMap<String, Integer> getItemEnchants(ItemStack i) {
         CompoundNBT tags = i.getTag();
-        if(tags != null) {
+        if(tags != null && tags.contains("Enchantments")) {
             CompoundNBT display = tags.getCompound("display");
             Set<String> displayKeys = display.keySet();
             for (String s : displayKeys) {
