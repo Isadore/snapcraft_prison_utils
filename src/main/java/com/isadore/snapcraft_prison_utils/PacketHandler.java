@@ -85,9 +85,9 @@ public class PacketHandler extends ChannelDuplexHandler {
             Map<String, Integer> itemEnchants = InventoryUtils.getItemEnchants(mc.player.getHeldItemMainhand());
             if(itemEnchants != null) {
                 if(itemEnchants.get("OreSeeker") != null && increasedItemTypes == 1 && decreasedItemTypes == 0)
-                    GuiOverlay.oreSeekTimerEnd = System.currentTimeMillis() + GuiOverlay.oreSeekTimeMS;
+                    UserData.profile.oreSeekTimerEnd = System.currentTimeMillis() + GuiOverlay.oreSeekTimeMS;
                 if(itemEnchants.get("Slicing") != null)
-                    GuiOverlay.sliceTimerEnd = System.currentTimeMillis() + GuiOverlay.sliceTimeMS;
+                    UserData.profile.sliceTimerEnd = System.currentTimeMillis() + GuiOverlay.sliceTimeMS;
             }
         }
         lastItemCounts = itemCounts;
