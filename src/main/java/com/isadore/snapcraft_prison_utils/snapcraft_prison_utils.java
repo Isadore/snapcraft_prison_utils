@@ -3,8 +3,9 @@ package com.isadore.snapcraft_prison_utils;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.multiplayer.ServerData;
 import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.fml.event.lifecycle.InterModEnqueueEvent;
+import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -49,8 +50,8 @@ public class snapcraft_prison_utils
         return false;
     }
 
-    private void enqueueIMC(final InterModEnqueueEvent event)
-    {
+    @SubscribeEvent
+    public void enqueueIMC(final FMLClientSetupEvent event) {
         KeyBinds.register();
     }
 
