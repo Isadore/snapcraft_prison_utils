@@ -4,6 +4,7 @@ import com.mojang.blaze3d.matrix.MatrixStack;
 import net.minecraft.client.Minecraft;
 import net.minecraft.network.NetworkManager;
 import net.minecraftforge.client.event.*;
+import net.minecraftforge.event.world.WorldEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 
 public class EventHandler {
@@ -43,8 +44,12 @@ public class EventHandler {
     }
 
     @SubscribeEvent
+    public void onWorldUnload(WorldEvent.Unload event) {
+        UserData.writeProfile();
+    }
+
+    @SubscribeEvent
     public void onMessageSent(ClientChatEvent event) {
-//        String msg = event.getMessage();
 //        if(msg.startsWith("/cf") || msg.startsWith("/coinflip")) event.setMessage("/");
     }
 
