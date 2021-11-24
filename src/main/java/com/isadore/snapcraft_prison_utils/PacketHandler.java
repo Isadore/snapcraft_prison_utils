@@ -8,7 +8,6 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.network.IPacket;
 import net.minecraft.network.play.server.SWindowItemsPacket;
 
-import javax.annotation.Nonnull;
 import java.lang.reflect.Method;
 import java.lang.reflect.Type;
 import java.util.HashMap;
@@ -34,7 +33,7 @@ public class PacketHandler extends ChannelDuplexHandler {
         }
     }
 
-    private void onPacket(@Nonnull IPacket<?> packet, boolean incoming) {
+    private void onPacket(IPacket<?> packet, boolean incoming) {
         Method[] methods = this.getClass().getDeclaredMethods();
         String packetName = packet.getClass().getTypeName();
         for (Method m : methods) {
@@ -55,7 +54,7 @@ public class PacketHandler extends ChannelDuplexHandler {
 
     Map<String, Integer> lastItemCounts = new HashMap<>();
 
-    public void onItemsUpdate(@Nonnull SWindowItemsPacket packet) {
+    public void onItemsUpdate(SWindowItemsPacket packet) {
         Map<String, Integer> itemCounts = new HashMap<>();
         for(ItemStack i : packet.getItemStacks()) {
             String itemID = InventoryUtils.getItemID(i);
