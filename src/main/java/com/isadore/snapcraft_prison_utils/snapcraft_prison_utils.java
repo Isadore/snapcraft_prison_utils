@@ -9,15 +9,38 @@ import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import java.util.UUID;
+
 @Mod(snapcraft_prison_utils.MODID)
 public class snapcraft_prison_utils
 {
     public static final String MODID = "snapcraft_prison_utils";
     public static final Logger LOGGER = LogManager.getLogger();
+    public static final Minecraft mc = Minecraft.getInstance();
 
     public snapcraft_prison_utils() {
-        FMLJavaModLoadingContext.get().getModEventBus().addListener(this::enqueueIMC);
+        FMLJavaModLoadingContext.get().getModEventBus().register(new snapcraft_prison_utils());
         MinecraftForge.EVENT_BUS.register(new EventHandler());
+    }
+
+    public static String playerID() {
+        return fromTrimmed(mc.session.getPlayerID()).toString();
+    }
+
+    public static UUID fromTrimmed(String trimmedUUID) throws IllegalArgumentException{
+        if(trimmedUUID == null) throw new IllegalArgumentException();
+        StringBuilder builder = new StringBuilder(trimmedUUID.trim());
+        /* Backwards adding to avoid index adjustments */
+        try {
+            builder.insert(20, "-");
+            builder.insert(16, "-");
+            builder.insert(12, "-");
+            builder.insert(8, "-");
+        } catch (StringIndexOutOfBoundsException e){
+            throw new IllegalArgumentException();
+        }
+
+        return UUID.fromString(builder.toString());
     }
 
     public static boolean serverIsSnapcraft() {
