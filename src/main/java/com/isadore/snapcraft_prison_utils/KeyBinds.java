@@ -22,7 +22,7 @@ public class KeyBinds {
     }
 
     public static void resetTimer() {
-        GuiOverlay.sliceTimerEnd = System.currentTimeMillis() + GuiOverlay.sliceTimeMS;
+        UserData.profile.sliceTimerEnd = System.currentTimeMillis() + GuiOverlay.sliceTimeMS;
     }
 
     public static boolean isKeyDown(KeyBinding keyBind, boolean checkScreen)

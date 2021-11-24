@@ -17,9 +17,7 @@ public class GuiOverlay {
     public static int screenHeight() { return mc.getMainWindow().getScaledHeight(); }
 
     public static final int sliceTimeMS = 7 * 60 * 1000;
-    public static long sliceTimerEnd = 0; //System.currentTimeMillis() + sliceTimeMS;
     public static final double oreSeekTimeMS = 60 * 1000;
-    public static double oreSeekTimerEnd = 0;
 
     private static void renderBackgroundBar(MatrixStack matrix, int y) {
         int lightGrey = ColorHelper.PackedColor.packColor(255, 153,153,153);
@@ -38,7 +36,7 @@ public class GuiOverlay {
     }
 
     public static void renderSliceTimer(MatrixStack matrix) {
-        double sliceTimeRemaining = sliceTimerEnd - System.currentTimeMillis();
+        double sliceTimeRemaining = UserData.profile.sliceTimerEnd - System.currentTimeMillis();
         int sliceMinutesRemaining = (int) (sliceTimeRemaining / 60000);
         int sliceSecondsRemaining = (int) (sliceTimeRemaining - (sliceMinutesRemaining * 60000)) / 1000;
         GuiOverlay.renderBackgroundBar(matrix, 0);
@@ -60,7 +58,7 @@ public class GuiOverlay {
     }
 
     public static void renderOreSeekTimer(MatrixStack matrix) {
-        double oreSeekTimeRemaining = oreSeekTimerEnd - System.currentTimeMillis();
+        double oreSeekTimeRemaining = UserData.profile.oreSeekTimerEnd - System.currentTimeMillis();
         int secondsRemaining = (int) oreSeekTimeRemaining / 1000;
         GuiOverlay.renderBackgroundBar(matrix, 11);
         if(oreSeekTimeRemaining > 0) {
