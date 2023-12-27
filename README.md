@@ -3,7 +3,7 @@ Uses the Minecraft Forge API to implement quality of life improvements for the S
 **Features:**
 - Inventory stack percentage tracker (Emerald and Diamond)
 * Slicing Pickaxe Timer
-  - Automatically detects slicing action by recording frequence of inventory item insertion packets within a short time frame
+  - Automatically detects slicing action by recording number of items updated in the players inventory by the server at once
 
 **Custom Bar Graphics:**
 
