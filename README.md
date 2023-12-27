@@ -7,7 +7,7 @@ Uses the Minecraft Forge API to implement quality of life improvements for the S
 
 **Custom Bar Graphics:**
 
-![alt text](https://github.com/Isadore/snapcraft_prison_utils/blob/master/readme/sample_image.png)
+![Bar Graphics](https://github.com/Isadore/snapcraft_prison_utils/blob/master/readme/sample_image.png)
 ```
 1. Percent of Inventory Stacks Full of Diamonds
 
@@ -15,3 +15,7 @@ Uses the Minecraft Forge API to implement quality of life improvements for the S
 
 3. Slicing Pickaxe Cooldown Timer
 ```
+
+*Notes:*
+
+*Item packet watching based on code from [https://github.com/TheAlphaEpsilon/Minecraft-Forge-1.15-Packet-Event](https://github.com/TheAlphaEpsilon/Minecraft-Forge-1.15-Packet-Event)*
